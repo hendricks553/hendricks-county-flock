@@ -163,6 +163,25 @@
   .src .n{ font-family:"Archivo",sans-serif; font-weight:700; font-size:.88rem; color:var(--ink); }
   .src .u{ display:block; font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--soft); margin-top:1px; }
 
+  details{
+    background:var(--white); border:1px solid var(--line);
+    padding:0; margin:12px 0;
+  }
+  details summary{
+    cursor:pointer; padding:10px 14px;
+    font-family:"Archivo",sans-serif; font-weight:700; font-size:.85rem;
+    text-transform:uppercase; letter-spacing:.04em;
+    list-style-position:inside;
+  }
+  details summary:hover{ color:var(--accent); }
+  details[open] summary{ border-bottom:1px solid var(--line); }
+  details .inner{ padding:12px 16px; }
+  details .inner p:last-child, details .inner ul:last-child{ margin-bottom:0; }
+  .copyblock{
+    font-family:"IBM Plex Mono",monospace; font-size:12.5px; line-height:1.55;
+    background:var(--paper); border:1px dashed var(--line);
+    padding:12px 14px; white-space:pre-wrap;
+  }
   footer{
     border-top:4px solid var(--rule); margin-top:56px; padding-top:12px;
     font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--soft);
@@ -217,7 +236,15 @@
   <ol class="acts">
     <li><span class="k">01</span><div><span class="do">Show up.</span> <span class="how">A full room changes the conversation. You don't have to say a word.</span></div></li>
     <li><span class="k">02</span><div><span class="do">Speak (2&ndash;3 min).</span> <span class="how">The three asks above are a ready outline. Sign-up is usually a sheet at the door.</span></div></li>
-    <li><span class="k">03</span><div><span class="do">File a records request.</span> <span class="how">Any person can request a town's Flock contract, payments, and use policy — residency not required (IC 5-14-3). Request forms: <a href="https://www.avonindiana.gov/177/Public-Records-Requests" target="_blank" rel="noopener">Avon</a> · <a href="https://laserfiche.brownsburg.org/Forms/PublicRecordsRequest" target="_blank" rel="noopener">Brownsburg</a> · <a href="https://danvillein.gov/egov/apps/action/center.egov?view=form;page=1;id=33" target="_blank" rel="noopener">Danville</a> · <a href="https://www.townofplainfield.com/1941/Records-Requests" target="_blank" rel="noopener">Plainfield</a></span></div></li>
+    <li><span class="k">03</span><div><span class="do">File a records request.</span> <span class="how">Any person can request a town's Flock contract, payments, and use policy — residency not required (IC 5-14-3). Request forms: <a href="https://www.avonindiana.gov/177/Public-Records-Requests" target="_blank" rel="noopener">Avon</a> · <a href="https://laserfiche.brownsburg.org/Forms/PublicRecordsRequest" target="_blank" rel="noopener">Brownsburg</a> · <a href="https://danvillein.gov/egov/apps/action/center.egov?view=form;page=1;id=33" target="_blank" rel="noopener">Danville</a> · <a href="https://www.townofplainfield.com/1941/Records-Requests" target="_blank" rel="noopener">Plainfield</a>
+      <details>
+        <summary>What to type</summary>
+        <div class="inner">
+          <div class="copyblock">I'd like copies of: (1) any contracts or agreements with Flock Safety, including the original and any renewals or amendments; (2) any invoices or payment records under those agreements; and (3) any policy, ordinance, or written guidance the town or police department has adopted governing use of its license plate reader cameras. Electronic copies by email are preferred. If any part of this request would involve a fee, please provide an estimated cost before proceeding. This request is for personal, noncommercial civic purposes.</div>
+          <p style="font-size:.85rem;color:var(--soft);margin-top:8px">Paste as-is into any of the four forms. The last sentence matters — at least one local town has denied a request by presuming commercial intent, and stating your purpose up front removes that basis.</p>
+        </div>
+      </details>
+      </span></div></li>
     <li><span class="k">04</span><div><span class="do">Map a camera.</span> <span class="how">See one that's not on <a href="https://deflock.me">deflock.me</a>? Drop a pin. That's where the 108 count comes from.</span></div></li>
     <li><span class="k">05</span><div><span class="do">Sign the petition &amp; email your state legislators.</span> <span class="how">Indiana's zero-rules status is the root problem, and only the General Assembly can fix it — the state's only ALPR bill, in 2015, died in committee without a vote. <a href="https://eyesoffindiana.org/petition" target="_blank" rel="noopener">Sign the Eyes Off Indiana petition</a>, then find your legislators at <a href="https://iga.in.gov" target="_blank" rel="noopener">iga.in.gov</a> — they track how many constituents from each community reach out.</span></div></li>
     <li><span class="k">06</span><div><span class="do">Share this page.</span> <span class="how">That's the whole ask.</span></div></li>
@@ -290,9 +317,13 @@
     </tbody>
   </table>
 
-  <h3 style="font-family:'Archivo',sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:.04em;margin:22px 0 8px">What Plainfield's portal reveals — for every agency</h3>
-  <p>Plainfield is the only local portal that publishes its sharing lists, and they answer the question the others leave open. Its data is searchable by agencies across <strong>30+ states</strong> — including five federal entities (among them the US Postal Inspection Service and Wright-Patterson Air Force Base), state corrections and revenue departments as far away as Alabama, and prosecutors' offices from New Jersey to California. The lists even carry stale entries like "(Dead/Old) Plymouth IN PD."</p>
-  <p><strong>And the county-wide finding:</strong> every other Hendricks County agency — the Sheriff's Office, Avon, Brownsburg, Danville, Pittsboro, and Lizton — appears on both sides of Plainfield's lists, sharing its own data and receiving Plainfield's. All six local deployments participate in Flock's sharing network. Only Plainfield says so publicly.</p>
+  <p style="margin-top:18px">Plainfield is the only local portal that publishes its sharing lists — and they answer the question the others leave open: every other Hendricks County agency (the Sheriff's Office, Avon, Brownsburg, Danville, Pittsboro, and Lizton) appears on both sides of those lists. <strong>All six local deployments participate in Flock's sharing network. Only Plainfield says so publicly.</strong></p>
+  <details>
+    <summary>How far the sharing reaches</summary>
+    <div class="inner">
+      <p>Plainfield's data is searchable by agencies across <strong>30+ states</strong> — including five federal entities (among them the US Postal Inspection Service and Wright-Patterson Air Force Base), state corrections and revenue departments as far away as Alabama, and prosecutors' offices from New Jersey to California. The lists even carry stale entries like "(Dead/Old) Plymouth IN PD" — access hygiene worth its own question.</p>
+    </div>
+  </details>
 
   <div class="duo" style="margin-top:12px">
     <div class="col">
@@ -339,7 +370,9 @@
     </tbody>
   </table>
   <p class="fine">Requests filed under Indiana's Access to Public Records Act. Responses will be linked here as they arrive.</p>
-  <h3 style="font-family:'Archivo',sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:.04em;margin:22px 0 8px">What Avon's contract shows</h3>
+  <details>
+    <summary>What Avon's contract shows</summary>
+    <div class="inner">
   <ul style="font-size:.95rem">
     <li><strong>It renews itself.</strong> After the initial 60-month term (signed 2023, running into ~2028), the agreement auto-renews in 24-month increments unless either party gives notice 30 days before the term ends. No action <em>is</em> a renewal decision.</li>
     <li><strong>Network sharing is opt-in.</strong> Flock's own proposal describes national and statewide sharing as something agencies "opt into" — so restricting sharing is a checkbox a council can direct, not a reason to cancel or keep anything.</li>
@@ -347,6 +380,8 @@
     <li><strong>The full terms live on Flock's website.</strong> The signed order form incorporates a Terms of Service by URL; the complete legal agreement isn't in the council packet.</li>
     <li><strong>The money:</strong> $15,000/year for 6 cameras ($75,000 over five years), paid from Avon's economic-development (EDIT) fund.</li>
   </ul>
+    </div>
+  </details>
 </section>
 
 <section id="src">
