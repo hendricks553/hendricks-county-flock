@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALPRs in Hendricks County</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f2f1ec; --ink:#191d20; --soft:#5c6167;
+    --line:#c9c7bd; --rule:#191d20;
+    --accent:#20406b; --white:#fbfaf6;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Source Serif 4", Georgia, serif;
+    font-size:16px; line-height:1.5;
+  }
+  .d{ font-family:"Archivo", "Helvetica Neue", sans-serif; }
+  .m{ font-family:"IBM Plex Mono", Menlo, monospace; }
+  a{ color:var(--accent); }
+  .wrap{ max-width:740px; margin:0 auto; padding:0 22px 70px; }
+
+  /* ---- masthead ---- */
+  header{ padding:40px 0 0; }
+  .notice-bar{
+    display:flex; justify-content:space-between; align-items:center;
+    border-top:4px solid var(--rule); border-bottom:1px solid var(--rule);
+    padding:6px 0; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  }
+  h1{
+    font-family:"Archivo",sans-serif; font-weight:900;
+    font-size:clamp(2rem, 6vw, 3.2rem);
+    line-height:.98; letter-spacing:-.01em;
+    text-transform:uppercase;
+    margin:26px 0 14px;
+  }
+  h1 .thin{ color:var(--accent); }
+  .dek{ font-size:1.05rem; color:var(--soft); max-width:56ch; margin:0 0 26px; }
+
+  /* ---- hero date ---- */
+  .hero{
+    background:var(--ink); color:var(--white);
+    padding:22px 24px; margin:0 0 8px;
+    display:flex; flex-wrap:wrap; gap:6px 24px;
+    justify-content:space-between; align-items:baseline;
+  }
+  .hero .when{ font-family:"Archivo",sans-serif; font-weight:900; font-size:1.6rem; text-transform:uppercase; }
+  .hero .what{ font-size:.95rem; opacity:.85; }
+  .hero-sub{ font-size:12px; color:var(--soft); margin:0 0 40px; }
+  .hero-sub .m{ font-size:11px; }
+
+  /* ---- sections ---- */
+  .wrap{ counter-reset:sec; }
+  section{ margin:0 0 48px; }
+  h2{
+    font-family:"Archivo",sans-serif; font-weight:700;
+    font-size:.95rem; text-transform:uppercase; letter-spacing:.05em;
+    border-bottom:2px solid var(--rule);
+    padding-bottom:6px; margin:0 0 16px;
+    display:flex; align-items:baseline; gap:10px;
+  }
+  section h2::before{
+    counter-increment:sec;
+    content:counter(sec, decimal-leading-zero);
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11px; font-weight:600; color:var(--accent);
+  }
+  h2 small{ font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:400; color:var(--soft); letter-spacing:0; text-transform:none; margin-left:auto; }
+  p{ margin:0 0 12px; }
+
+  /* short version */
+  .lede{ font-size:1.15rem; line-height:1.5; }
+  .lede strong{ background:linear-gradient(transparent 62%, #d8dfeb 62%); }
+
+  /* asks */
+  .asks{ margin:0; padding:0; counter-reset:ask; }
+  .asks li{
+    list-style:none; margin:0 0 10px; padding:14px 16px 14px 52px;
+    background:var(--white); border:1px solid var(--line); position:relative;
+  }
+  .asks li::before{
+    counter-increment:ask; content:counter(ask);
+    position:absolute; left:16px; top:12px;
+    font-family:"Archivo",sans-serif; font-weight:900; font-size:1.3rem;
+    color:var(--accent);
+  }
+  .asks .head{ font-family:"Archivo",sans-serif; font-weight:700; display:block; margin-bottom:2px; }
+  .asks .why{ font-size:.9rem; color:var(--soft); }
+
+  /* actions */
+  .acts{ margin:0; padding:0; }
+  .acts li{
+    list-style:none; display:grid; grid-template-columns:26px 1fr;
+    gap:12px; padding:10px 0; border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .acts li:last-child{ border-bottom:none; }
+  .acts .k{ font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--accent); font-weight:600; }
+  .acts .do{ font-family:"Archivo",sans-serif; font-weight:700; font-size:.95rem; }
+  .acts .how{ font-size:.9rem; color:var(--soft); }
+
+  /* meetings */
+  .meet-note{
+    font-size:.85rem; color:var(--soft);
+    border-left:3px solid var(--accent); padding:8px 14px; margin:0 0 16px;
+    background:var(--white);
+  }
+  .meets{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media(max-width:620px){ .meets{ grid-template-columns:1fr; } }
+  .meet{
+    background:var(--white); border:1px solid var(--line); padding:14px 16px;
+  }
+  .meet.star{ border:2px solid var(--ink); }
+  .meet .town{ font-family:"Archivo",sans-serif; font-weight:900; text-transform:uppercase; font-size:.9rem; }
+  .meet .cams{ font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--soft); float:right; }
+  .meet .date{ font-family:"IBM Plex Mono",monospace; font-weight:600; color:var(--accent); display:block; margin:6px 0 4px; font-size:1.05rem; }
+  .meet .addr a{ color:var(--soft); }
+  .meet .addr{ font-size:.85rem; color:var(--soft); }
+  .meet .badge{
+    display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:9px;
+    text-transform:uppercase; letter-spacing:.08em;
+    background:var(--ink); color:var(--white); padding:2px 6px; margin-top:8px;
+  }
+
+  /* numbers */
+  .stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:14px; }
+  @media(max-width:520px){ .stats{ grid-template-columns:repeat(2,1fr);} }
+  .stat{ background:var(--white); padding:14px 12px; }
+  .stat .n{ font-family:"Archivo",sans-serif; font-weight:900; font-size:1.7rem; display:block; line-height:1; }
+  .stat .l{ font-family:"IBM Plex Mono",monospace; font-size:10px; text-transform:uppercase; letter-spacing:.03em; color:var(--soft); }
+  table{ width:100%; border-collapse:collapse; font-family:"IBM Plex Mono",monospace; font-size:12px; }
+  th,td{ text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); }
+  th{ font-size:10px; text-transform:uppercase; color:var(--soft); font-weight:600; }
+  td.num, th.num{ text-align:right; }
+  tr:last-child td{ border-bottom:none; }
+
+  /* portal */
+  .duo{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media(max-width:620px){ .duo{ grid-template-columns:1fr; } }
+  .duo .col{ background:var(--white); border:1px solid var(--line); padding:14px 16px; }
+  .duo .t{ font-family:"Archivo",sans-serif; font-weight:700; font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; margin-bottom:8px; }
+  .duo ul{ margin:0; padding-left:18px; font-size:.9rem; }
+  .duo li{ margin-bottom:6px; }
+  .fine{ font-size:.85rem; color:var(--soft); margin-top:12px; }
+
+  /* precedent */
+  .bloom{
+    background:var(--white); border:1px solid var(--line);
+    border-left:6px solid var(--accent); padding:18px 20px;
+  }
+  .bloom .big{ font-family:"Archivo",sans-serif; font-weight:900; font-size:1.15rem; margin:0 0 8px; }
+  .bloom p{ font-size:.95rem; }
+  .bloom p:last-child{ margin-bottom:0; }
+
+  /* sources */
+  .srcs{ display:grid; gap:8px; }
+  .src{ display:block; background:var(--white); border:1px solid var(--line); padding:10px 14px; text-decoration:none; }
+  .src:hover{ border-color:var(--accent); }
+  .src .n{ font-family:"Archivo",sans-serif; font-weight:700; font-size:.88rem; color:var(--ink); }
+  .src .u{ display:block; font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--soft); margin-top:1px; }
+
+  footer{
+    border-top:4px solid var(--rule); margin-top:56px; padding-top:12px;
+    font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--soft);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="notice-bar d">
+    <span>Community Notice · Unofficial</span>
+    <span>Hendricks Co., Indiana</span>
+  </div>
+  <h1>License plate readers are tracking <span class="thin">every car</span> in this county.</h1>
+  <p class="dek">108 cameras. Six police agencies. Zero state rules on how long your location data is kept or who it's shared with. Here's what's documented — and what you can do during the National Week of Action, <strong>Aug 16&ndash;22</strong>.</p>
+
+  <div class="hero">
+    <div>
+      <span class="what">National Week of Action Against ALPRs</span><br>
+      <span class="when">Aug 16&ndash;22, 2026</span>
+    </div>
+    <div class="what">Council meetings in all four<br>towns this month — <a href="#meet" style="color:inherit">see dates</a></div>
+  </div>
+  <p class="hero-sub"><span class="m">Note:</span> No town has ALPRs on a posted agenda yet, and public-comment rules vary — check the agenda when it posts (~1 week out) and confirm with the clerk whether general comment is open.</p>
+</header>
+
+<section id="short">
+  <h2>The short version <small>30 seconds</small></h2>
+  <p class="lede">These cameras photograph <strong>every passing car</strong> — not just suspects — and log plate, location, and time in a searchable database. Indiana sets <strong>no limits</strong> on retention, sharing, or oversight, so every safeguard is voluntary and can change without notice. The ask is simple: <strong>end the contracts, or bind them with real rules.</strong></p>
+</section>
+
+<section id="ask">
+  <h2>What to ask for <small>in order of preference</small></h2>
+  <ol class="asks">
+    <li>
+      <span class="head">Don't renew the contract.</span>
+      <span class="why">Bloomington did exactly this in March. The county functioned before these cameras; it will function after.</span>
+    </li>
+    <li>
+      <span class="head">Failing that: binding, public rules.</span>
+      <span class="why">A council-adopted use policy (not a vendor webpage), independent audits of search logs, and a public answer on whether local data feeds Flock's nationwide search network.</span>
+    </li>
+    <li>
+      <span class="head">At minimum: no quiet renewals.</span>
+      <span class="why">Cost, term, camera count, and retention discussed in the open — not passed as a line item.</span>
+    </li>
+  </ol>
+</section>
+
+<section id="act">
+  <h2>Pick one thing <small>any one helps</small></h2>
+  <ol class="acts">
+    <li><span class="k">01</span><div><span class="do">Show up.</span> <span class="how">A full room changes the conversation. You don't have to say a word.</span></div></li>
+    <li><span class="k">02</span><div><span class="do">Speak (2&ndash;3 min).</span> <span class="how">The three asks above are a ready outline. Sign-up is usually a sheet at the door.</span></div></li>
+    <li><span class="k">03</span><div><span class="do">File a records request.</span> <span class="how">Any person can request a town's Flock contract, payments, and use policy — residency not required (IC 5-14-3).</span></div></li>
+    <li><span class="k">04</span><div><span class="do">Map a camera.</span> <span class="how">See one that's not on <a href="https://deflock.me">deflock.me</a>? Drop a pin. That's where the 108 count comes from.</span></div></li>
+    <li><span class="k">05</span><div><span class="do">Email your state legislators.</span> <span class="how">Indiana's zero-rules status is the root problem. <a href="https://eyesoffindiana.org">Eyes Off Indiana</a> has the policy goals ready.</span></div></li>
+    <li><span class="k">06</span><div><span class="do">Share this page.</span> <span class="how">That's the whole ask.</span></div></li>
+  </ol>
+</section>
+
+<section id="meet">
+  <h2>August council meetings</h2>
+  <p class="meet-note">These are regular monthly meetings — ALPRs are <em>not</em> confirmed on any agenda, and whether open public comment is allowed varies by town. Check the posted agenda and confirm with the clerk before making the drive.</p>
+  <div class="meets">
+    <div class="meet">
+      <span class="cams">3 cameras</span>
+      <span class="town">Danville</span>
+      <span class="date">Wed Aug 19 · 7 PM</span>
+      <span class="addr"><a href="https://maps.google.com/?q=49+N+Wayne+St,+Danville,+IN+46122" target="_blank" rel="noopener">Town Hall, 49 N. Wayne St.</a><br>1st &amp; 3rd Wednesdays — the Aug 19 meeting falls during the week of action</span>
+    </div>
+    <div class="meet">
+      <span class="cams">20 cameras</span>
+      <span class="town">Brownsburg</span>
+      <span class="date">Thu Aug 13 &amp; Aug 27 · 7 PM</span>
+      <span class="addr"><a href="https://maps.google.com/?q=61+N+Green+St,+Brownsburg,+IN+46112" target="_blank" rel="noopener">61 N. Green St.</a><br>2nd &amp; 4th Thursdays — just before &amp; just after the week</span>
+    </div>
+    <div class="meet">
+      <span class="cams">26 cameras</span>
+      <span class="town">Avon</span>
+      <span class="date">Thu Aug 13 &amp; Aug 27 · 7 PM</span>
+      <span class="addr"><a href="https://maps.google.com/?q=6570+E+US+Highway+36,+Avon,+IN+46123" target="_blank" rel="noopener">Town Hall, 6570 E US Hwy 36</a><br>2nd &amp; 4th Thursdays (work session 5:30 PM Aug 13)</span>
+    </div>
+    <div class="meet">
+      <span class="cams">22 cameras</span>
+      <span class="town">Plainfield</span>
+      <span class="date">Mon Aug 10 &amp; Aug 24 · 7 PM</span>
+      <span class="addr"><a href="https://maps.google.com/?q=206+W+Main+St,+Plainfield,+IN+46168" target="_blank" rel="noopener">Civic Center Council Chambers, 206 W. Main St.</a><br>2nd &amp; 4th Mondays</span>
+    </div>
+  </div>
+</section>
+
+<section id="numbers">
+  <h2>The numbers <small>crowdsourced · refreshed nightly</small></h2>
+  <div class="stats">
+    <div class="stat"><span class="n">108</span><span class="l">cameras countywide</span></div>
+    <div class="stat"><span class="n">#8</span><span class="l">of 92 IN counties</span></div>
+    <div class="stat"><span class="n">6</span><span class="l">police agencies</span></div>
+    <div class="stat"><span class="n">3,222</span><span class="l">cameras statewide</span></div>
+    <div class="stat"><span class="n">1.1M+</span><span class="l">plate reads/mo — 2 of 6 agencies reporting</span></div>
+    <div class="stat"><span class="n" style="color:var(--accent)">0</span><span class="l">state rules on retention, sharing, or oversight</span></div>
+  </div>
+  <table>
+    <thead><tr><th>Town</th><th class="num">Cameras</th><th class="num">Per 100k</th></tr></thead>
+    <tbody>
+      <tr><td>Avon</td><td class="num">26</td><td class="num">105.1</td></tr>
+      <tr><td>Plainfield</td><td class="num">22</td><td class="num">58.2</td></tr>
+      <tr><td>Brownsburg</td><td class="num">20</td><td class="num">59.8</td></tr>
+      <tr><td>Pittsboro</td><td class="num">5</td><td class="num">116.6</td></tr>
+      <tr><td>Danville</td><td class="num">3</td><td class="num">23.9</td></tr>
+      <tr><td>Lizton</td><td class="num">2</td><td class="num">394.5</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="portal">
+  <h2>What Flock publishes about local use</h2>
+  <p>Flock hosts "transparency portals" for at least four local agencies. They're real and worth reading — but they're vendor-hosted, hard to find, and were surfaced by volunteers, not linked by the agencies themselves.</p>
+  <table>
+    <thead><tr><th>Agency</th><th class="num">Cameras</th><th class="num">Reads / 30d</th><th class="num">Hotlist hits</th><th class="num">Hit rate</th></tr></thead>
+    <tbody>
+      <tr><td><a href="https://transparency.flocksafety.com/hendricks-county-in-so" target="_blank" rel="noopener">Sheriff's Office</a></td><td class="num">19</td><td class="num">783,549</td><td class="num">54,414</td><td class="num" style="color:var(--accent);font-weight:600">~7%</td></tr>
+      <tr><td><a href="https://transparency.flocksafety.com/avon-in-pd" target="_blank" rel="noopener">Avon PD</a></td><td class="num">6</td><td class="num">344,180</td><td class="num">48,128</td><td class="num" style="color:var(--accent);font-weight:600">~14%</td></tr>
+      <tr><td>Plainfield PD</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td></tr>
+      <tr><td><a href="https://transparency.flocksafety.com/pittsboro-in-pd" target="_blank" rel="noopener">Pittsboro PD</a></td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td></tr>
+    </tbody>
+  </table>
+  <p class="fine">Plainfield's portal is notable for a different reason: it discloses a long list of outside organizations with access to its data — the one question the other portals don't answer.</p>
+  <div class="duo" style="margin-top:12px">
+    <div class="col">
+      <div class="t">The portals state</div>
+      <ul>
+        <li>Plates &amp; vehicles only — no facial recognition</li>
+        <li>Law-enforcement use only; never sold</li>
+        <li>Immigration enforcement prohibited</li>
+        <li>30-day retention; access logs kept indefinitely</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="t">The open questions</div>
+      <ul>
+        <li>Roughly 1 in every 7&ndash;14 passing cars is flagged as a "hit." How many were false positives — and how many led to a stop?</li>
+        <li>Plainfield publishes its sharing list. Will the others?</li>
+        <li>Who reviews the access logs — has anyone, ever?</li>
+        <li>Were any of these policies adopted by a council, or do they exist only on Flock's site?</li>
+      </ul>
+    </div>
+  </div>
+  <p class="fine">"Never sold" is likely true — and beside the point. The concern is sharing: one query through Flock's law-enforcement network can reach tens of thousands of cameras nationwide, under the <em>querying</em> agency's rules, not ours. No money needs to change hands for that.</p>
+</section>
+
+<section id="bloom">
+  <h2>An hour away, this already worked</h2>
+  <div class="bloom">
+    <p class="big">Bloomington ended its Flock contract in March 2026.</p>
+    <p>After months of public pressure, the city let its ~$50,000 contract expire on March 5 and <a href="https://bloomington.in.gov/news/2026/04/15/6521" target="_blank" rel="noopener">declined to renew</a>. Even before that, it had barred out-of-state agencies from querying its database; afterward, it cut all outside data sharing.</p>
+    <p>The mayor's own words are the tone worth borrowing: if a tool like this is used at all, it must be under <em>narrow parameters, strong accountability, and clear public safeguards.</em></p>
+  </div>
+</section>
+
+<section id="records">
+  <h2>The paper trail <small>documents, found &amp; pending</small></h2>
+  <table>
+    <thead><tr><th>Document</th><th>Town / Agency</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td><a href="https://www.avonindiana.gov/AgendaCenter/ViewFile/Item/2071?fileID=2448" target="_blank" rel="noopener">Flock contract (5-year)</a></td><td>Avon</td><td>Public — council agenda packet</td></tr>
+      <tr><td><a href="https://www.avonindiana.gov/AgendaCenter/ViewFile/Item/2071?fileID=2447" target="_blank" rel="noopener">Staff pricing memo</a></td><td>Avon</td><td>Public — $2,500 &rarr; $3,000/camera/yr</td></tr>
+      <tr><td>Contract, payments, use policy</td><td>Brownsburg</td><td>Requested — pending</td></tr>
+      <tr><td>Contract, payments, use policy</td><td>Danville</td><td>Requested — pending</td></tr>
+      <tr><td>Contract, payments, use policy</td><td>Plainfield</td><td>Not yet requested</td></tr>
+    </tbody>
+  </table>
+  <p class="fine">Requests filed under Indiana's Access to Public Records Act. Responses will be linked here as they arrive.</p>
+</section>
+
+<section id="src">
+  <h2>Sources</h2>
+  <div class="srcs">
+    <a class="src" href="https://eyesoffindiana.org/counties/hendricks" target="_blank" rel="noopener"><span class="n">Eyes Off Indiana — Hendricks County report</span><span class="u">eyesoffindiana.org/counties/hendricks</span></a>
+    <a class="src" href="https://transparency.flocksafety.com/hendricks-county-in-so" target="_blank" rel="noopener"><span class="n">Flock transparency portal — Hendricks Co. Sheriff</span><span class="u">transparency.flocksafety.com</span></a>
+    <a class="src" href="https://footnote4a.org/news/transparency-portals" target="_blank" rel="noopener"><span class="n">Footnote4a / Have I Been Flocked — index of all Flock transparency portals</span><span class="u">footnote4a.org/news/transparency-portals</span></a>
+    <a class="src" href="https://deflock.me" target="_blank" rel="noopener"><span class="n">DeFlock — camera map &amp; Week of Action toolkit</span><span class="u">deflock.me · noalprs.com/toolkit.html</span></a>
+    <a class="src" href="https://bloomington.in.gov/news/2026/04/15/6521" target="_blank" rel="noopener"><span class="n">City of Bloomington — official Flock announcement</span><span class="u">bloomington.in.gov</span></a>
+    <a class="src" href="https://www.eff.org/pages/automated-license-plate-readers-alprs" target="_blank" rel="noopener"><span class="n">EFF — ALPR overview &amp; documented cases</span><span class="u">eff.org</span></a>
+    <a class="src" href="https://ij.org/police-have-reportedly-used-license-plate-readers-to-stalk-romantic-interests-at-least-14-times-in-recent-years/" target="_blank" rel="noopener"><span class="n">Institute for Justice — 22+ documented stalking cases</span><span class="u">ij.org</span></a>
+  </div>
+</section>
+
+<footer>
+  Not affiliated with any town, county, or law-enforcement agency. Nothing here alleges misuse by any local agency. Corrections welcome via the sources above.
+</footer>
+
+</div>
+</body>
+</html>
