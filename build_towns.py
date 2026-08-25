@@ -191,7 +191,7 @@ PAGES['brownsburg.html'] = dict(
   <ul>
     <li>The records confirm no written use policy. Will the council adopt one?</li>
     <li>Retention was described as 30 days. Flock's default is now 7. Which is the department running?</li>
-    <li>Who reviews the search logs, and has anyone ever done so?</li>
+    <li>Who reviews the search logs, and has anyone ever done so? An LAPD audit found roughly a third of its stolen-vehicle alerts were false, mostly from stale hotlist data, which is the kind of thing only an audit surfaces.</li>
     <li>The agreement auto-renews in 24-month increments. Will the next renewal come to a public vote?</li>
     <li>Why is a surveillance contract billed as vehicle and equipment repairs?</li>
   </ul>
@@ -315,6 +315,7 @@ PAGES['plainfield.html'] = dict(
   <h2>About that hit rate</h2>
   <p>Roughly 22% of plate reads are flagged as hotlist hits, the highest of the three local portals that publish a rate. That is more than one read in five.</p>
   <p>A hit is not a crime and not an arrest. It means a plate matched a list. Lists include stolen vehicles, but also expired registrations, warrants for unrelated matters, and entries other agencies added. The published numbers do not say how many hits were wrong, and they do not say how many produced a traffic stop. Those are the two numbers a resident would actually want.</p>
+  <p>There is a reference point for what happens when somebody counts. An LAPD Inspector General audit of 498 stolen-vehicle alerts found 161 of them false, a rate of 32.3%, traced mostly to hotlist databases that were out of date rather than to camera misreads. That is a records problem, and it is invisible without an audit. <a href="why.html">More on that</a>.</p>
 </section>
 """,
     meeting="""  <div class="panel">
