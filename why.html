@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The case | ALPRs in Hendricks County</title>
-<meta name="description" content="The argument against local ALPR contracts: machine error, nationwide access, the vendor's security record, and what the crime data actually shows.">
+<meta name="description" content="Documented error rates, access and sharing, vendor security failures, and clearance data on automated license plate readers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -26,106 +26,102 @@
     <a href="documents.html">Documents</a>
   </nav>
 
-  <h1>The concern isn't our officers. <span class="thin">It's the technology.</span></h1>
-  <p class="dek">There is no reason to doubt that a local chief believes in this program for the right reasons, or that it has helped on real cases here. That is not what is in question. What follows is about the system these departments have bought into, and the people outside this county it hands our data to.</p>
+  <h1>What the record shows</h1>
+  <p class="dek">Five things are reasonably well documented about these systems: what they collect, how often the alerts are wrong, who can search the data, the vendor's security history, and what the crime statistics show. None of it concerns the conduct of any local department.</p>
 </header>
 
 <section>
-  <h2>What the database actually is</h2>
-  <p>An ALPR does not watch for a suspect. It photographs every car that passes and files the plate, the place, and the time into a database that holds the movements of vehicles in town for the retention window, historically 30 days.</p>
-  <p>Continuous movement tracking reveals what the Supreme Court has called the privacies of life. Where you worship, who you visit, which doctor you see, how often you go and how long you stay. None of it requires anyone to have suspected you of anything. The pattern is kept just in case, and the systems protecting it have more failure points than anyone accounted for when the contract was signed.</p>
-  <p>Nobody objects to being seen on a public road. Arguing that point wastes the three minutes you get at a microphone. The objection is to the record that accumulates, and to who can reach it.</p>
+  <h2>What is collected</h2>
+  <p>An ALPR photographs every vehicle that passes, not only vehicles of interest. Each read records the plate, the time, and the location. Flock's system also indexes make, model, color, and distinguishing features such as bumper stickers, roof racks, and damage, which means a vehicle can be located without its plate being read at all.</p>
+  <p>Reads are retained whether or not they match anything. Historically the default window was 30 days; Flock lowered its default to 7 days in August 2026, though customers can configure it. Over that window the accumulated reads describe a vehicle's movement pattern rather than a single sighting, which is the basis of most legal objections to the technology. Courts have treated sustained location tracking differently from one-time observation in public.</p>
 </section>
 
 <section>
-  <h2>Failure point one: the machine makes mistakes</h2>
-  <p>Nobody watches these cameras around the clock. A program does, and it gets things wrong.</p>
-  <p>Two widely reported cases involved adults ordered out of their car at gunpoint in front of children after a camera misread a plate. The Institute for Justice has documented roughly 30 stops caused by misread plates, most of them with officers drawing firearms. A single character read wrong is enough.</p>
-  <p>Even when the plate is read correctly, the list it is checked against can be stale. This is the failure people miss, and it is the one with the hardest evidence behind it.</p>
-  <div class="panel mark-left">
-    <p class="big">Los Angeles counted, and the answer was one in three.</p>
-    <p>An LAPD Inspector General audit reviewed 498 stolen-vehicle alerts over two months. 337 correctly identified a stolen car. 161 did not, a false-positive rate of 32.3%. Each of those 161 meant an officer approaching a driver who had stolen nothing, often as a high-risk stop. The department let its Flock contract expire in July 2026.</p>
-    <p>The cause is worth being precise about, because it is not a story about bad cops or bad cameras. The plates were largely read correctly. The hotlists were wrong: recovered vehicles never cleared from the list, outdated theft reports, data entry errors nobody corrected. It is a records-maintenance failure, and it is completely invisible until somebody audits it.</p>
-  </div>
-  <p style="margin-top:14px">That leaves officers filtering alerts by hand or risking a stop on an innocent resident. It is a burden placed on them by the system, not a failing of theirs. And no agency in this county publishes a comparable figure, because nobody outside those departments has counted.</p>
+  <h2>Error rates</h2>
+  <p>Hit rates published by three local agencies range from about 7% to about 22% of reads. A hit means a plate matched a list, not that a crime occurred. None of the local portals publish how many hits were incorrect or how many produced a stop.</p>
+  <p>Where an outside body has counted, the figures are substantial. An audit by the Los Angeles Police Department's Office of the Inspector General reviewed 498 stolen-vehicle alerts over a two-month period: 337 correctly identified a stolen vehicle and 161 did not, a false-positive rate of 32.3%. LAPD let its Flock contract expire in July 2026.</p>
+  <p>The audit attributed most false alerts to the hotlist data rather than to camera misreads: recovered vehicles never removed from lists, outdated theft reports, and uncorrected data-entry errors. That is a records-maintenance problem in the source databases, distinct from the accuracy of the cameras themselves, and it is not detectable without an audit.</p>
+  <p>Separately, the Institute for Justice has catalogued stops in which a misread plate led officers to detain drivers who had committed no offense, in a majority of cases with firearms drawn.</p>
+  <p class="fine">The relevant local question is narrow: has any Hendricks County agency measured its own false-positive rate, and is the figure available?</p>
 </section>
 
 <section>
-  <h2>Failure point two: private from us, open to them</h2>
-  <p>Use policies correctly treat this data as sensitive and keep it out of public review. Meanwhile it flows into a network spanning the country. Plainfield's portal, the only local one that publishes its sharing lists, shows agencies in more than 30 states with access, along with federal entities.</p>
-  <p>So the data is private from the residents it describes, and available to thousands of officers elsewhere who are a login and a brief stated reason away from it. Anything they pull, they can keep, in a copy nobody here controls.</p>
-  <p>The Institute for Justice has documented roughly 30 cases of officers using their access to stalk people. What matters as much as the count is how they surfaced: most came to light because a victim came forward, not because an internal control caught it.</p>
+  <h2>Who can search the data</h2>
+  <p>Use policies generally classify ALPR data as sensitive and exempt it from public inspection. The same data is shared into a national network. Plainfield's transparency portal, the only local one publishing its sharing lists, shows access extending to agencies in more than 30 states and to several federal entities. Searches run under the rules of the querying agency, not the collecting one.</p>
+  <p>Misuse is documented at scale. A Washington Post investigation published August 3, 2026 identified at least 50 law enforcement officers charged with or accused of using plate reader systems for unauthorized surveillance of women they knew personally; Flock's system was involved in 46 of those cases. In 26 of them, investigators concluded the targets were partners, former partners, or women the officer wanted to meet.</p>
+  <p>How these cases surfaced is as relevant as the count. The majority came to light through victims, journalists, or outside review rather than through routine internal auditing. In Milwaukee, a victim identified the searches by looking up her own plate on a public log aggregator.</p>
   <div class="panel">
-    <p class="big">This is not a distant problem.</p>
-    <p>In August 2026 an IMPD officer was found to have used the Flock system hundreds of times for no legitimate law enforcement purpose. He was stripped of police powers on August 6, his system access revoked, and Chief Tanya Terry suspended him with a recommendation for termination. Administrative and criminal investigations followed, and IMPD moved to require every search be tied to a case number.</p>
-    <p>The department's handling of it was fast and public, and that deserves saying. But the reporting indicates the searches came to light around the time a newspaper contacted the department, not through routine auditing. That is the pattern nationally too, and it is the argument for oversight rather than against any particular department.</p>
+    <p class="big">Indiana, August 2026</p>
+    <p>An Indianapolis Metropolitan Police Department officer was found to have run hundreds of ALPR searches concentrated on a small number of plates, with no legitimate law enforcement purpose. IMPD removed his police powers and system access on August 6, and Chief Tanya Terry suspended him with a recommendation for termination. Administrative and criminal investigations followed, and the department adopted a policy requiring searches to be tied to a case number.</p>
+    <p>The department's response was prompt and public. Reporting indicates the searches came to attention around the time a newspaper contacted IMPD rather than through scheduled auditing. The Indianapolis Fraternal Order of Police subsequently called for additional safeguards from the legislature.</p>
   </div>
 </section>
 
 <section>
-  <h2>Failure point three: the vendor's own security</h2>
-  <p>Even granting every agency in the chain acts properly, the data still sits with a company whose security record is documented and poor.</p>
+  <h2>The vendor's security record</h2>
   <ul>
-    <li>In late 2025, researchers found Flock cameras streaming live to the open internet with no username, no password, and no encryption. 404 Media confirmed at least 60; researcher Jon Gaines catalogued 67 exposed feeds and debug interfaces. Archived footage could be downloaded and device settings changed.</li>
-    <li>Gaines published 51 findings across Flock's device ecosystem, including its plate reader cameras and gunshot detection microphones. MITRE assigned CVEs to 22 of them, with more pending.</li>
-    <li>Flock login credentials have appeared for sale on Russian cybercrime forums, and a cybersecurity firm reported at least 35 customer accounts with stolen passwords. Multi-factor authentication was not required of law enforcement customers until the company's August 2026 changes.</li>
-    <li>Senator Ron Wyden and Representative Raja Krishnamoorthi wrote to the FTC in November 2025 asking for an investigation into these issues.</li>
+    <li>In December 2025, researchers found Flock cameras streaming live to the public internet without authentication. 404 Media confirmed at least 60; researcher Jon Gaines catalogued 67 exposed feeds and debug interfaces. Archived footage was downloadable and device settings were modifiable.</li>
+    <li>Gaines published 51 findings across Flock's device ecosystem, including plate reader cameras and gunshot detection units. MITRE assigned CVEs to 22, with others pending.</li>
+    <li>Flock customer credentials have appeared for sale on Russian cybercrime forums. A cybersecurity firm reported at least 35 customer accounts with stolen passwords. Multi-factor authentication was not required of law enforcement customers until August 2026.</li>
+    <li>Senator Ron Wyden and Representative Raja Krishnamoorthi asked the FTC to investigate in a letter dated November 3, 2025.</li>
   </ul>
-  <p>A company that assures cities its deployed devices are secure, while dozens of them sit open to anyone who knows where to look, is asking for a level of trust its record does not support.</p>
+  <p>These failures sit outside the control of any contracting agency. A town can write a strong use policy and still be exposed by a vendor-side lapse.</p>
 </section>
 
 <section>
-  <h2>And the promised results are hard to find</h2>
-  <p>Atlanta is the most camera-saturated city in the country and an early adopter, with more than 5,000 Flock cameras. It is Flock's hometown. If this technology delivers what is claimed, it should be visible there.</p>
-  <p>The Atlanta Community Press Collective pulled the police department's own figures from the FBI's Crime Data Explorer. Between 2021 and 2025, as the camera network grew several times over, clearance rates fell for homicide, robbery, larceny, and shoplifting. Homicide clearance went from 53.4% to 48%, the department's worst year of the period. Rape clearance was flat. Motor vehicle theft, the category these cameras should be best at, moved by about a third of a percentage point and sits near one in ten.</p>
-  <p>Falling clearance rates are not Flock's fault, and nobody should claim they are. Departments were dealing with staffing, a national auto theft surge, and much else. But that is the point. If a city can grow to 5,000 cameras and its own reported numbers show no lift, that undercuts the claim that this degree of surveillance should be accepted for the greater good.</p>
-</section>
-
-<section>
-  <h2>The question isn't whether you trust your department</h2>
-  <div class="panel mark-left">
-    <p>If the only people to trust here were the local police department, there would be no reason to raise any of this.</p>
-    <p>But the system asks for trust in agencies across the country operating under their own rules, in a company with a documented history of security failures, and, given credentials for sale on criminal forums, in strangers. With the privacies of life of everyone who drives through town.</p>
+  <h2>What the clearance data shows</h2>
+  <p>Atlanta has more Flock cameras than any other American city, over 5,000, and adopted the technology early. The Atlanta Community Press Collective compiled the police department's own figures from the FBI's Crime Data Explorer for 2021 through 2025, the period covering the buildout.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Offense</th><th class="num">2021 clearance</th><th class="num">2025 clearance</th></tr></thead>
+      <tbody>
+        <tr><td>Homicide</td><td class="num">53.4%</td><td class="num">48.0%</td></tr>
+        <tr><td>Rape</td><td class="num">37.7%</td><td class="num">37.7%</td></tr>
+        <tr><td>Motor vehicle theft</td><td class="num">9.9%</td><td class="num">10.2%</td></tr>
+      </tbody>
+    </table>
   </div>
+  <p style="margin-top:12px">Clearance rates also fell over the period for robbery, larceny, and shoplifting. 2025 was Atlanta's weakest homicide clearance year of the five.</p>
+  <p>Causation runs in several directions here and the decline should not be attributed to ALPRs. Departments nationally faced staffing shortages and a documented surge in vehicle thefts over the same years. The narrower observation is what it is: the most heavily surveilled city in the country shows no measurable clearance improvement across the period of its buildout, which is difficult to reconcile with claims that this scale of deployment produces large public safety returns.</p>
 </section>
 
 <section>
-  <h2>What to ask for</h2>
+  <h2>What towns have been asked for</h2>
   <ol class="asks">
     <li>
-      <span class="head">End the contract.</span>
-      <span class="why">Bloomington let its Flock contract lapse in 2026 after a months-long evaluation, and reporting this year puts cancellations or rejections across roughly 28 states. The county functioned before these cameras and would function after.</span>
+      <span class="head">Non-renewal.</span>
+      <span class="why">Bloomington's contract lapsed in 2026 after a months-long evaluation. Reporting this year places cancellations or rejections across roughly 28 states.</span>
     </li>
     <li>
-      <span class="head">If that can't happen quickly, three concrete limits.</span>
-      <span class="why">Formal limits on who may search the database and on what basis. Sharing restricted to our own department. Renewals brought to a public agenda with enough time before the notice deadline that the council is actually making a choice rather than letting one pass.</span>
+      <span class="head">Or three specific limits, short of that.</span>
+      <span class="why">Formal restrictions on who may query the database and on what basis; sharing narrowed to the contracting department; and renewals placed on a public agenda with enough lead time before the notice deadline for the council to make an actual decision.</span>
     </li>
     <li>
-      <span class="head">And answer the settings question.</span>
-      <span class="why">Flock changed several defaults in August 2026. What is the retention window here today, are searches tied to case numbers, who reviews the audit logs, and where can a resident read the answer? None of that is published for any agency in this county, and none of it is hard to answer.</span>
+      <span class="head">And disclosure of current settings.</span>
+      <span class="why">Retention window in effect today, whether searches require a case number, and who reviews the audit logs. Flock changed several defaults in August 2026, and no agency in this county has published which it adopted.</span>
     </li>
   </ol>
-  <p>Policy and public opinion are moving in this direction. Indiana lawmakers have signaled they will take up plate reader regulation, and the local police union in Indianapolis has itself called for additional safeguards from the legislature. There is an argument for being ahead of that rather than behind it.</p>
+  <p class="fine">Indiana has enacted no statute governing ALPR retention, sharing, or oversight, so these are decisions each department or council makes on its own. State legislators have indicated the subject is likely to come up in the next session.</p>
 </section>
 
 <section>
-  <h2>The four objections, and fair answers</h2>
+  <h2>Common responses</h2>
   <div class="duo">
     <div class="col">
-      <div class="t">"Your phone already tracks you."</div>
-      <p style="font-size:.9rem;margin:0">Fair as far as it goes. The difference is consent and reversibility. You can leave a phone at home or turn location off. The state requires you to display a license plate.</p>
+      <div class="t">Phones already collect location</div>
+      <p style="font-size:.9rem;margin:0">Accurate, but the collection is consented to and can be switched off or left behind. Displaying a license plate is legally required.</p>
     </div>
     <div class="col">
-      <div class="t">"It solved a case."</div>
-      <p style="font-size:.9rem;margin:0">Those cases are real and worth acknowledging. They answer a different question. Nothing in the ask stops a department using the system on a case. The ask is that somebody outside it can check how it was used.</p>
+      <div class="t">The system has solved cases</div>
+      <p style="font-size:.9rem;margin:0">Documented and not in dispute. It addresses a different question than what rules govern the data, since none of the requests above would prevent investigative use.</p>
     </div>
     <div class="col">
-      <div class="t">"There's nothing to hide in public."</div>
-      <p style="font-size:.9rem;margin:0">The misuse record is the reply. The people tracked in those cases were not hiding anything either. What made them reachable was that a location history existed and somebody with access wanted it.</p>
+      <div class="t">No expectation of privacy in public</div>
+      <p style="font-size:.9rem;margin:0">This is why the objection concerns the retained database rather than the act of observation. In the documented misuse cases, the people tracked were doing nothing private.</p>
     </div>
     <div class="col">
-      <div class="t">"The data is never sold."</div>
-      <p style="font-size:.9rem;margin:0">Probably true, and beside the point. No money changes hands in any of the sharing documented on this site. One query reaches cameras across the country under the querying agency's rules. Selling is not the mechanism.</p>
+      <div class="t">The data is never sold</div>
+      <p style="font-size:.9rem;margin:0">Consistent with the record. No payment occurs in any of the sharing documented here; access is granted through the network rather than sold.</p>
     </div>
   </div>
 </section>
@@ -135,16 +131,16 @@
   <div class="srcs">
     <a class="src" href="https://eyesoffindiana.org/counties/hendricks" target="_blank" rel="noopener"><span class="n">Eyes Off Indiana, Hendricks County report</span><span class="u">eyesoffindiana.org/counties/hendricks</span></a>
     <a class="src" href="https://deflock.me" target="_blank" rel="noopener"><span class="n">DeFlock, crowdsourced camera map</span><span class="u">deflock.me</span></a>
-    <a class="src" href="https://www.techtimes.com/articles/320800/20260717/lapd-cuts-off-flock-safety-after-audit-finds-one-three-hot-list-alerts-were-false.htm" target="_blank" rel="noopener"><span class="n">LAPD Inspector General audit, 32.3% false-positive rate on hotlist alerts</span><span class="u">techtimes.com</span></a>
+    <a class="src" href="https://www.techtimes.com/articles/320800/20260717/lapd-cuts-off-flock-safety-after-audit-finds-one-three-hot-list-alerts-were-false.htm" target="_blank" rel="noopener"><span class="n">LAPD Inspector General audit, 32.3% false-positive rate</span><span class="u">techtimes.com</span></a>
     <a class="src" href="https://atlpresscollective.com/2026/07/28/flock-cameras-atlanta-clearance-rates/" target="_blank" rel="noopener"><span class="n">Atlanta Community Press Collective, clearance rates from FBI data</span><span class="u">atlpresscollective.com</span></a>
-    <a class="src" href="https://stateofsurveillance.org/news/flock-safety-cameras-exposed-no-password-2026/" target="_blank" rel="noopener"><span class="n">Exposed camera feeds, stolen credentials, and the Wyden letter</span><span class="u">stateofsurveillance.org</span></a>
+    <a class="src" href="https://stateofsurveillance.org/news/flock-safety-cameras-exposed-no-password-2026/" target="_blank" rel="noopener"><span class="n">Exposed camera feeds, stolen credentials, Wyden letter</span><span class="u">stateofsurveillance.org</span></a>
     <a class="src" href="https://gainsec.com/2026/01/09/bird-hunting-season-finding-67-live-camera-feeds-and-debug-web-interfaces-accidentally-exposed-by-flock-safety/" target="_blank" rel="noopener"><span class="n">GainSec, 67 exposed feeds and debug interfaces</span><span class="u">gainsec.com</span></a>
     <a class="src" href="https://www.wishtv.com/news/crime-watch-8/chief-recommends-firing-impd-officer-who-misused-license-plate-readers/" target="_blank" rel="noopener"><span class="n">WISH-TV, IMPD officer suspended with recommendation for termination</span><span class="u">wishtv.com</span></a>
-    <a class="src" href="https://bloomington.in.gov/news/2026/04/15/6521" target="_blank" rel="noopener"><span class="n">City of Bloomington, official non-renewal announcement</span><span class="u">bloomington.in.gov</span></a>
-    <a class="src" href="https://www.aclu.org/campaigns-initiatives/get-the-flock-out" target="_blank" rel="noopener"><span class="n">ACLU, Get the Flock Out campaign and cancellation tracker</span><span class="u">aclu.org</span></a>
-    <a class="src" href="https://ij.org/police-have-reportedly-used-license-plate-readers-to-stalk-romantic-interests-at-least-14-times-in-recent-years/" target="_blank" rel="noopener"><span class="n">Institute for Justice, documented misuse and wrongful stop cases</span><span class="u">ij.org</span></a>
+    <a class="src" href="https://bloomington.in.gov/news/2026/04/15/6521" target="_blank" rel="noopener"><span class="n">City of Bloomington, non-renewal announcement</span><span class="u">bloomington.in.gov</span></a>
+    <a class="src" href="https://www.aclu.org/campaigns-initiatives/get-the-flock-out" target="_blank" rel="noopener"><span class="n">ACLU, Get the Flock Out cancellation tracker</span><span class="u">aclu.org</span></a>
+    <a class="src" href="https://ij.org/police-have-reportedly-used-license-plate-readers-to-stalk-romantic-interests-at-least-14-times-in-recent-years/" target="_blank" rel="noopener"><span class="n">Institute for Justice, misuse and wrongful stop cases</span><span class="u">ij.org</span></a>
     <a class="src" href="https://www.eff.org/pages/automated-license-plate-readers-alprs" target="_blank" rel="noopener"><span class="n">EFF, plate reader overview</span><span class="u">eff.org</span></a>
-    <a class="src" href="https://footnote4a.org/news/transparency-portals" target="_blank" rel="noopener"><span class="n">Footnote4a, index of every Flock transparency portal</span><span class="u">footnote4a.org/news/transparency-portals</span></a>
+    <a class="src" href="https://footnote4a.org/news/transparency-portals" target="_blank" rel="noopener"><span class="n">Footnote4a, index of Flock transparency portals</span><span class="u">footnote4a.org/news/transparency-portals</span></a>
   </div>
 </section>
 
