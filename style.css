@@ -1,0 +1,223 @@
+/* ALPRs in Hendricks County — shared styles */
+
+:root{
+  --paper:#f2f1ec; --ink:#191d20; --soft:#5c6167;
+  --line:#c9c7bd; --rule:#191d20;
+  --accent:#20406b; --flag:#8a3324; --white:#fbfaf6;
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Source Serif 4", Georgia, serif;
+  font-size:16px; line-height:1.55;
+}
+.d{ font-family:"Archivo","Helvetica Neue",sans-serif; }
+.m{ font-family:"IBM Plex Mono",Menlo,monospace; }
+a{ color:var(--accent); }
+a:focus-visible, summary:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+.wrap{ max-width:760px; margin:0 auto; padding:0 22px 70px; }
+p{ margin:0 0 12px; }
+.fine{ font-size:.85rem; color:var(--soft); }
+
+/* ---------- masthead + nav ---------- */
+.notice-bar{
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  border-top:4px solid var(--rule); border-bottom:1px solid var(--rule);
+  padding:6px 0; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  font-family:"Archivo",sans-serif;
+}
+.notice-bar a{ color:inherit; text-decoration:none; font-weight:700; }
+header{ padding:32px 0 0; }
+
+nav.main{
+  border-bottom:1px solid var(--rule); margin-bottom:30px;
+  display:flex; flex-wrap:wrap; gap:0 2px;
+}
+nav.main a{
+  font-family:"Archivo",sans-serif; font-weight:700;
+  font-size:.78rem; text-transform:uppercase; letter-spacing:.05em;
+  padding:9px 12px; text-decoration:none; color:var(--soft);
+}
+nav.main a:hover{ color:var(--ink); background:var(--white); }
+nav.main a[aria-current="page"]{ color:var(--white); background:var(--ink); }
+
+h1{
+  font-family:"Archivo",sans-serif; font-weight:900;
+  font-size:clamp(1.9rem, 5.4vw, 2.9rem);
+  line-height:1; letter-spacing:-.01em; text-transform:uppercase;
+  margin:6px 0 14px;
+}
+h1 .thin{ color:var(--accent); }
+.dek{ font-size:1.05rem; color:var(--soft); max-width:58ch; margin:0 0 30px; }
+
+.crumb{
+  font-family:"IBM Plex Mono",monospace; font-size:11px;
+  text-transform:uppercase; letter-spacing:.08em; color:var(--soft);
+  margin:0 0 4px;
+}
+.crumb a{ color:var(--soft); }
+
+/* ---------- sections ---------- */
+section{ margin:0 0 46px; }
+h2{
+  font-family:"Archivo",sans-serif; font-weight:700;
+  font-size:.95rem; text-transform:uppercase; letter-spacing:.05em;
+  border-bottom:2px solid var(--rule);
+  padding-bottom:6px; margin:0 0 16px;
+  display:flex; align-items:baseline; gap:10px;
+}
+h2 small{
+  font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:400;
+  color:var(--soft); letter-spacing:0; text-transform:none; margin-left:auto;
+}
+h3{
+  font-family:"Archivo",sans-serif; font-weight:700; font-size:.85rem;
+  text-transform:uppercase; letter-spacing:.04em; margin:22px 0 8px;
+}
+
+.lede{ font-size:1.15rem; line-height:1.5; }
+.lede strong{ background:linear-gradient(transparent 62%, #d8dfeb 62%); }
+
+/* ---------- ledger: the status signature ---------- */
+.ledger{ border:1px solid var(--line); background:var(--white); }
+.ledger-row{
+  display:grid; grid-template-columns:1fr auto;
+  gap:12px; align-items:center;
+  padding:10px 14px; border-bottom:1px solid var(--line);
+}
+.ledger-row:last-child{ border-bottom:none; }
+.ledger-row .q{ font-size:.92rem; }
+.ledger-row .q b{ font-family:"Archivo",sans-serif; font-size:.85rem; text-transform:uppercase; letter-spacing:.03em; display:block; }
+.ledger-row .q span{ color:var(--soft); font-size:.85rem; }
+.mark{
+  font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:600;
+  text-transform:uppercase; letter-spacing:.07em;
+  padding:3px 8px; white-space:nowrap; border:1px solid var(--line);
+}
+.mark.yes{ background:var(--ink); color:var(--white); border-color:var(--ink); }
+.mark.no{ background:var(--flag); color:var(--white); border-color:var(--flag); }
+.mark.wait{ background:var(--paper); color:var(--soft); }
+
+/* ---------- stats ---------- */
+.stats{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+  background:var(--line); border:1px solid var(--line); margin-bottom:14px;
+}
+@media(max-width:560px){ .stats{ grid-template-columns:repeat(2,1fr); } }
+.stat{ background:var(--white); padding:14px 12px; }
+.stat .n{ font-family:"Archivo",sans-serif; font-weight:900; font-size:1.7rem; display:block; line-height:1; }
+.stat .l{ font-family:"IBM Plex Mono",monospace; font-size:10px; text-transform:uppercase; letter-spacing:.03em; color:var(--soft); }
+.stat.flag .n{ color:var(--flag); }
+
+/* ---------- tables ---------- */
+table{ width:100%; border-collapse:collapse; font-family:"IBM Plex Mono",monospace; font-size:12px; }
+th,td{ text-align:left; padding:7px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+th{ font-size:10px; text-transform:uppercase; color:var(--soft); font-weight:600; }
+td.num, th.num{ text-align:right; }
+tr:last-child td{ border-bottom:none; }
+.table-scroll{ overflow-x:auto; }
+
+/* ---------- town cards ---------- */
+.towns{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media(max-width:620px){ .towns{ grid-template-columns:1fr; } }
+.town-card{
+  display:block; text-decoration:none; color:inherit;
+  background:var(--white); border:1px solid var(--line); padding:14px 16px;
+}
+.town-card:hover{ border-color:var(--accent); }
+.town-card .name{ font-family:"Archivo",sans-serif; font-weight:900; text-transform:uppercase; font-size:1.05rem; }
+.town-card .count{ font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--soft); float:right; padding-top:5px; }
+.town-card .line{ font-size:.88rem; color:var(--soft); margin-top:6px; }
+.town-card .state{
+  font-family:"IBM Plex Mono",monospace; font-size:9.5px; text-transform:uppercase;
+  letter-spacing:.07em; margin-top:10px; display:inline-block;
+  padding:2px 7px; background:var(--ink); color:var(--white);
+}
+.town-card .state.open{ background:var(--flag); }
+.town-card .state.quiet{ background:var(--paper); color:var(--soft); border:1px solid var(--line); }
+
+/* ---------- callouts ---------- */
+.note{
+  font-size:.9rem; color:var(--soft);
+  border-left:3px solid var(--accent); padding:10px 14px;
+  background:var(--white); margin:0 0 16px;
+}
+.note.warn{ border-left-color:var(--flag); }
+.panel{ background:var(--white); border:1px solid var(--line); padding:16px 18px; }
+.panel.mark-left{ border-left:6px solid var(--accent); }
+.panel .big{ font-family:"Archivo",sans-serif; font-weight:900; font-size:1.15rem; margin:0 0 8px; }
+.panel p:last-child{ margin-bottom:0; }
+
+.duo{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media(max-width:620px){ .duo{ grid-template-columns:1fr; } }
+.duo .col{ background:var(--white); border:1px solid var(--line); padding:14px 16px; }
+.duo .t{ font-family:"Archivo",sans-serif; font-weight:700; font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; margin-bottom:8px; }
+.duo ul{ margin:0; padding-left:18px; font-size:.9rem; }
+.duo li{ margin-bottom:6px; }
+
+/* ---------- asks / actions ---------- */
+.asks{ margin:0; padding:0; counter-reset:ask; }
+.asks li{
+  list-style:none; margin:0 0 10px; padding:14px 16px 14px 52px;
+  background:var(--white); border:1px solid var(--line); position:relative;
+}
+.asks li::before{
+  counter-increment:ask; content:counter(ask);
+  position:absolute; left:16px; top:12px;
+  font-family:"Archivo",sans-serif; font-weight:900; font-size:1.3rem; color:var(--accent);
+}
+.asks .head{ font-family:"Archivo",sans-serif; font-weight:700; display:block; margin-bottom:2px; }
+.asks .why{ font-size:.9rem; color:var(--soft); }
+
+.acts{ margin:0; padding:0; }
+.acts > li{
+  list-style:none; padding:12px 0; border-bottom:1px solid var(--line);
+}
+.acts > li:last-child{ border-bottom:none; }
+.acts .do{ font-family:"Archivo",sans-serif; font-weight:700; font-size:1rem; }
+.acts .how{ font-size:.92rem; color:var(--soft); }
+
+/* ---------- details ---------- */
+details{ background:var(--white); border:1px solid var(--line); padding:0; margin:12px 0; }
+details summary{
+  cursor:pointer; padding:10px 14px;
+  font-family:"Archivo",sans-serif; font-weight:700; font-size:.85rem;
+  text-transform:uppercase; letter-spacing:.04em; list-style-position:inside;
+}
+details summary:hover{ color:var(--accent); }
+details[open] summary{ border-bottom:1px solid var(--line); }
+details .inner{ padding:12px 16px; }
+details .inner p:last-child, details .inner ul:last-child{ margin-bottom:0; }
+details .inner ul{ font-size:.92rem; padding-left:18px; }
+details .inner li{ margin-bottom:7px; }
+
+.copyblock{
+  font-family:"IBM Plex Mono",monospace; font-size:12.5px; line-height:1.55;
+  background:var(--paper); border:1px dashed var(--line);
+  padding:12px 14px; white-space:pre-wrap;
+}
+
+/* ---------- sources ---------- */
+.srcs{ display:grid; gap:8px; }
+.src{ display:block; background:var(--white); border:1px solid var(--line); padding:10px 14px; text-decoration:none; }
+.src:hover{ border-color:var(--accent); }
+.src .n{ font-family:"Archivo",sans-serif; font-weight:700; font-size:.88rem; color:var(--ink); }
+.src .u{ display:block; font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--soft); margin-top:1px; }
+
+/* ---------- next / footer ---------- */
+.next{
+  display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  border-top:2px solid var(--rule); padding-top:14px; margin-top:40px;
+}
+.next a{
+  font-family:"Archivo",sans-serif; font-weight:700; font-size:.85rem;
+  text-transform:uppercase; letter-spacing:.04em; text-decoration:none;
+}
+footer{
+  border-top:4px solid var(--rule); margin-top:50px; padding-top:12px;
+  font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--soft);
+}
+footer a{ color:var(--soft); }
